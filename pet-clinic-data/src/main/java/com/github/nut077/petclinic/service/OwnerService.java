@@ -1,6 +1,6 @@
 package com.github.nut077.petclinic.service;
 
-import com.github.nut077.petclinic.model.Owner;
+import com.github.nut077.petclinic.entity.Owner;
 
 import java.util.Set;
 

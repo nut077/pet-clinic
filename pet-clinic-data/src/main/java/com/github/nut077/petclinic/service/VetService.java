@@ -1,6 +1,6 @@
 package com.github.nut077.petclinic.service;
 
-import com.github.nut077.petclinic.model.Vet;
+import com.github.nut077.petclinic.entity.Vet;
 
 import java.util.Set;
 
