@@ -1,8 +1,10 @@
 package com.github.nut077.petclinic.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class PetType extends BaseEntity {
     private String name;
 }

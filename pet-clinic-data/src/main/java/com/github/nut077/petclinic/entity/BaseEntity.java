@@ -1,10 +1,12 @@
 package com.github.nut077.petclinic.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 public class BaseEntity implements Serializable {
     private Long id;
 }
