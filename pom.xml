@@ -47,6 +47,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:nut077/pet-clinic.git</developerConnection>
+        <url>https://github.com/nut077/pet-clinic</url>
         <tag>HEAD</tag>
     </scm>
 
