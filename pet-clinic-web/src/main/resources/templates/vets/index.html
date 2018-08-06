@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/fragment :: fragment(~{ :: body}, 'Vet')}">
 <body>
-Vet page
+<h1>List of Vets</h1>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  <tr th:each="vet : ${vets}">
+    <td th:text="${vet.id}">1</td>
+    <td th:text="${vet.firstName}">Firstname</td>
+    <td th:text="${vet.lastName}">Lastname</td>
+  </tr>
+</table>
 </body>
 </html>
