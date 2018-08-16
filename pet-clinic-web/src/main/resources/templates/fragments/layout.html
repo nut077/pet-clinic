@@ -47,10 +47,10 @@
           <span>Error</span>
         </li>
         <li>
-          <a href="javascript:changeLanguage('th')"><img th:src="@{resources/images/th.png}" src="../../static/resources/images/th.png"/></a>
+          <a href="javascript:" onclick="changeLanguage('th')"><img th:src="@{resources/images/th.png}" src="../../static/resources/images/th.png"/></a>
         </li>
         <li>
-          <a href="javascript:changeLanguage('en')"><img th:src="@{resources/images/en.png}" src="../../static/resources/images/en.png"/></a>
+          <a href="javascript:" onclick="changeLanguage('en')"><img th:src="@{resources/images/en.png}" src="../../static/resources/images/en.png"/></a>
         </li>
       </ul>
     </div>
@@ -71,7 +71,7 @@
   </div>
 </div>
 <script>
-  function changeLanguage(lang) {debugger;
+  function changeLanguage(lang) {
     const location = window.location.href;
     if (location.indexOf('?') > -1) {
       let param = location.split('?')[1];

@@ -1,32 +1,33 @@
 package com.github.nut077.petclinic.bootstrap;
 
-import com.github.nut077.petclinic.entity.Owner;
-import com.github.nut077.petclinic.entity.Pet;
-import com.github.nut077.petclinic.entity.PetType;
-import com.github.nut077.petclinic.entity.Vet;
+import com.github.nut077.petclinic.entity.*;
 import com.github.nut077.petclinic.service.OwnerService;
 import com.github.nut077.petclinic.service.PetTypeService;
+import com.github.nut077.petclinic.service.SpecialityService;
 import com.github.nut077.petclinic.service.VetService;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+@AllArgsConstructor
 @Component
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
-
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
-        this.ownerService = ownerService;
-        this.vetService = vetService;
-        this.petTypeService = petTypeService;
-    }
+    private final SpecialityService specialityService;
 
     @Override
     public void run(String... args) {
+        if (petTypeService.findAll().size() == 0) {
+            loadData();
+        }
+    }
+
+    private void loadData() {
         PetType dog = new PetType();
         dog.setName("dog");
         PetType saveDogPetType = petTypeService.save(dog);
@@ -35,9 +36,21 @@ public class DataLoader implements CommandLineRunner {
         cat.setName("cat");
         PetType saveCatPetType = petTypeService.save(cat);
 
+        Speciality radiology = new Speciality();
+        radiology.setDescription("radiology");
+        Speciality saveRadiology = specialityService.save(radiology);
+
+        Speciality surgery = new Speciality();
+        surgery.setDescription("surgery");
+        Speciality saveSurgery = specialityService.save(surgery);
+
+        Speciality dentistry = new Speciality();
+        dentistry.setDescription("dentistry");
+        Speciality saveDentistry = specialityService.save(dentistry);
+
         Owner owner1 = new Owner();
-        owner1.setFirstName("OwnerFirstName1");
-        owner1.setLastName("OwnerLastName1");
+        owner1.setFirstName("George");
+        owner1.setLastName("Franklin");
         owner1.setAddress("237");
         owner1.setCity("Kanchanaburi");
         owner1.setTelephone("084-3344312");
@@ -51,31 +64,40 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setFirstName("OwnerFirstName2");
-        owner2.setLastName("OwnerLastName2");
+        owner2.setFirstName("Betty");
+        owner2.setLastName("Davis");
         owner2.setAddress("93");
         owner2.setCity("Bangkok");
         owner2.setTelephone("086-5411215");
 
-        Pet fat = new Pet();
-        fat.setName("Fat");
-        fat.setPetType(saveCatPetType);
-        fat.setOwner(owner2);
-        fat.setBirthDate(LocalDate.now());
-        owner2.getPets().add(fat);
+        Pet leo = new Pet();
+        leo.setName("Leo");
+        leo.setPetType(saveCatPetType);
+        leo.setOwner(owner2);
+        leo.setBirthDate(LocalDate.now());
+        owner2.getPets().add(leo);
 
         ownerService.save(owner2);
         System.out.println("Load Owner");
 
         Vet vet1 = new Vet();
-        vet1.setFirstName("VetFirstName1");
-        vet1.setLastName("VetLastName1");
+        vet1.setFirstName("James");
+        vet1.setLastName("Carter");
+        vet1.getSpecialities().add(saveRadiology);
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
-        vet2.setFirstName("VetFirstName2");
-        vet2.setLastName("VetLastName2");
+        vet2.setFirstName("Helen");
+        vet2.setLastName("Leary");
+        vet2.getSpecialities().add(saveSurgery);
         vetService.save(vet2);
+
+        Vet vet3 = new Vet();
+        vet3.setFirstName("Linda");
+        vet3.setLastName("Douglas");
+        vet3.getSpecialities().add(saveDentistry);
+        vetService.save(vet3);
+
         System.out.println("Load Vet");
     }
 }
