@@ -46,6 +46,12 @@
           <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
           <span>Error</span>
         </li>
+        <li>
+          <a href="javascript:changeLanguage('th')"><img th:src="@{resources/images/th.png}" src="../../static/resources/images/th.png"/></a>
+        </li>
+        <li>
+          <a href="javascript:changeLanguage('en')"><img th:src="@{resources/images/en.png}" src="../../static/resources/images/en.png"/></a>
+        </li>
       </ul>
     </div>
   </div>
@@ -64,5 +70,22 @@
     </div>
   </div>
 </div>
+<script>
+  function changeLanguage(lang) {debugger;
+    const location = window.location.href;
+    if (location.indexOf('?') > -1) {
+      let param = location.split('?')[1];
+      param = param.replace('lang=th', '');
+      param = param.replace('lang=en', '');
+      let paramLang = '&lang=';
+      if (param === '') {
+        paramLang = 'lang=';
+      }
+      window.location.replace('?' + param + paramLang + lang);
+    } else {
+      window.location.replace('?lang=' + lang);
+    }
+  }
+</script>
 </body>
 </html>
