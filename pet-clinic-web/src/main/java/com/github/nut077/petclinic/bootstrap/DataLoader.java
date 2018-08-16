@@ -30,23 +30,23 @@ public class DataLoader implements CommandLineRunner {
     private void loadData() {
         PetType dog = new PetType();
         dog.setName("dog");
-        PetType saveDogPetType = petTypeService.save(dog);
+        PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
         cat.setName("cat");
-        PetType saveCatPetType = petTypeService.save(cat);
+        PetType savedCatPetType = petTypeService.save(cat);
 
         Speciality radiology = new Speciality();
         radiology.setDescription("radiology");
-        Speciality saveRadiology = specialityService.save(radiology);
+        Speciality savedRadiology = specialityService.save(radiology);
 
         Speciality surgery = new Speciality();
         surgery.setDescription("surgery");
-        Speciality saveSurgery = specialityService.save(surgery);
+        Speciality savedSurgery = specialityService.save(surgery);
 
         Speciality dentistry = new Speciality();
         dentistry.setDescription("dentistry");
-        Speciality saveDentistry = specialityService.save(dentistry);
+        Speciality savedDentistry = specialityService.save(dentistry);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("George");
@@ -57,7 +57,7 @@ public class DataLoader implements CommandLineRunner {
 
         Pet fanta = new Pet();
         fanta.setName("Fanta");
-        fanta.setPetType(saveDogPetType);
+        fanta.setPetType(savedDogPetType);
         fanta.setOwner(owner1);
         fanta.setBirthDate(LocalDate.now());
         owner1.getPets().add(fanta);
@@ -72,7 +72,7 @@ public class DataLoader implements CommandLineRunner {
 
         Pet leo = new Pet();
         leo.setName("Leo");
-        leo.setPetType(saveCatPetType);
+        leo.setPetType(savedCatPetType);
         leo.setOwner(owner2);
         leo.setBirthDate(LocalDate.now());
         owner2.getPets().add(leo);
@@ -83,19 +83,19 @@ public class DataLoader implements CommandLineRunner {
         Vet vet1 = new Vet();
         vet1.setFirstName("James");
         vet1.setLastName("Carter");
-        vet1.getSpecialities().add(saveRadiology);
+        vet1.getSpecialities().add(savedRadiology);
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Helen");
         vet2.setLastName("Leary");
-        vet2.getSpecialities().add(saveSurgery);
+        vet2.getSpecialities().add(savedSurgery);
         vetService.save(vet2);
 
         Vet vet3 = new Vet();
         vet3.setFirstName("Linda");
         vet3.setLastName("Douglas");
-        vet3.getSpecialities().add(saveDentistry);
+        vet3.getSpecialities().add(savedDentistry);
         vetService.save(vet3);
 
         System.out.println("Load Vet");
