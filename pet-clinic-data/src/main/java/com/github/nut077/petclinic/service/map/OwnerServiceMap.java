@@ -16,7 +16,6 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     private final PetTypeService petTypeService;
     private final PetService petService;
-    private final OwnerService ownerService;
 
     @Override
     public Set<Owner> findAll() {
@@ -64,6 +63,6 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        return ownerService.findByLastName(lastName);
+        return null;
     }
 }
