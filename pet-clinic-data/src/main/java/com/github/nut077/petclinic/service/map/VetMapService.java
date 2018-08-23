@@ -11,7 +11,7 @@ import java.util.Set;
 
 @AllArgsConstructor
 @Service
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
     private final SpecialityService specialityService;
 
     @Override

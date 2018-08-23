@@ -2,7 +2,7 @@ package com.github.nut077.petclinic.service.jpa.impl;
 
 import com.github.nut077.petclinic.entity.PetType;
 import com.github.nut077.petclinic.repository.PetTypeRepository;
-import com.github.nut077.petclinic.service.jpa.PetTypeServiceJpa;
+import com.github.nut077.petclinic.service.jpa.PetTypeJpaService;
 import com.github.nut077.petclinic.util.MessageErrorFindById;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Service
-public class PetTypeServiceJpaImpl implements PetTypeServiceJpa {
+public class PetTypeJpaServiceImpl implements PetTypeJpaService {
 
     private PetTypeRepository petTypeRepository;
 
