@@ -5,11 +5,13 @@ import com.github.nut077.petclinic.repository.OwnerRepository;
 import com.github.nut077.petclinic.service.jpa.OwnerJpaService;
 import com.github.nut077.petclinic.util.MessageErrorFindById;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Service
 public class OwnerJpaServiceImpl implements OwnerJpaService {

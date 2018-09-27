@@ -1,14 +1,13 @@
 package com.github.nut077.petclinic.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.Set;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
