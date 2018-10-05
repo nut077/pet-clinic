@@ -41,7 +41,6 @@ class OwnerControllerTest {
     private List<Owner> owners;
     private Long id = 1L;
 
-
     @BeforeEach
     void setUp() {
         owners = new ArrayList<>();
