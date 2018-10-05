@@ -58,7 +58,6 @@ public class OwnerController {
     @GetMapping("/new")
     public String initCreationForm(Model model) {
         model.addAttribute("owner", Owner.builder().build());
-        model.addAttribute("textButton", "addOwner");
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
@@ -75,7 +74,6 @@ public class OwnerController {
     @GetMapping("/{ownerId}/edit")
     public String initUpdateOwnerForm(@PathVariable Long ownerId, Model model) {
         model.addAttribute(ownerJpaService.findById(ownerId));
-        model.addAttribute("textButton", "editOwner");
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
