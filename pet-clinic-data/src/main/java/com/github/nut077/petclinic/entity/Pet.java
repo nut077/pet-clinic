@@ -1,9 +1,6 @@
 package com.github.nut077.petclinic.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -28,4 +25,15 @@ public class Pet extends NameEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private Set<Visit> visits = new LinkedHashSet<>();
+
+    @Builder
+    public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visites) {
+        super(id, name);
+        this.petType = petType;
+        this.owner = owner;
+        this.birthDate = birthDate;
+        if (visites == null || visites.size() > 0) {
+            this.visits = visites;
+        }
+    }
 }

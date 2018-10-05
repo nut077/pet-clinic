@@ -14,4 +14,9 @@ import javax.persistence.MappedSuperclass;
 @AllArgsConstructor
 public class NameEntity extends BaseEntity {
     private String name;
+
+    public NameEntity(Long id, String name) {
+        super(id);
+        this.name = name;
+    }
 }

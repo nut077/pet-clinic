@@ -5,7 +5,6 @@ import com.github.nut077.petclinic.service.jpa.OwnerJpaService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -18,11 +17,10 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -99,12 +97,12 @@ class OwnerControllerTest {
 
     @Test
     void processCreationForm() throws Exception {
-        when(service.save(ArgumentMatchers.any())).thenReturn(Owner.builder().id(id).build());
+        when(service.save(any())).thenReturn(Owner.builder().id(id).build());
         mockMvc.perform(post("/owners/new"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/" + id))
                 .andExpect(model().attributeExists("owner"));
-        verify(service).save(ArgumentMatchers.any());
+        verify(service).save(any());
     }
 
     @Test
@@ -119,11 +117,11 @@ class OwnerControllerTest {
 
     @Test
     void processUpdateOwnerForm() throws Exception {
-        when(service.save(ArgumentMatchers.any())).thenReturn(Owner.builder().id(id).build());
+        when(service.save(any())).thenReturn(Owner.builder().id(id).build());
         mockMvc.perform(post("/owners/" + id + "/edit"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/" + id))
                 .andExpect(model().attributeExists("owner"));
-        verify(service).save(ArgumentMatchers.any());
+        verify(service).save(any());
     }
 }
