@@ -22,6 +22,11 @@ public class OwnerJpaServiceImpl implements OwnerJpaService {
     }
 
     @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);
+    }
+
+    @Override
     public List<Owner> findAll() {
         return ownerRepository.findAll();
     }

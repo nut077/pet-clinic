@@ -54,4 +54,16 @@ class OwnerControllerTest {
 
         verifyZeroInteractions(service);
     }
+
+    @Test
+    void showOwner() throws Exception {
+        Long id = 1L;
+        Owner owner = Owner.builder().id(id).build();
+        when(service.findById(id)).thenReturn(owner);
+        mockMvc.perform(get("/owners/" + id))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerDetails"))
+                .andExpect(model().attributeExists("owner"))
+                .andReturn();
+    }
 }

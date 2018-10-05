@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{ :: body}, 'home', #{websiteName})}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{ :: body}, 'home', #{websiteName})}">
 <body>
 <h2 th:text="#{welcome}">Welcome</h2>
 <div class="row">

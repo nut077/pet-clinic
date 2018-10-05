@@ -34,7 +34,7 @@
           <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
           <span>Home</span>
         </li>
-        <li th:replace="::menuItem ('/owners', 'owners', 'find owners', 'search', #{findOwners})">
+        <li th:replace="::menuItem ('/owners/find', 'owners', 'find owners', 'search', #{findOwners})">
           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           <span>Find owners</span>
         </li>
@@ -47,10 +47,10 @@
           <span>Error</span>
         </li>
         <li>
-          <a href="javascript:" onclick="changeLanguage('th')"><img th:src="@{resources/images/th.png}" src="../../static/resources/images/th.png"/></a>
+          <a href="javascript:" onclick="changeLanguage('th')"><img th:src="@{/resources/images/th.png}" src="../../static/resources/images/th.png"/></a>
         </li>
         <li>
-          <a href="javascript:" onclick="changeLanguage('en')"><img th:src="@{resources/images/en.png}" src="../../static/resources/images/en.png"/></a>
+          <a href="javascript:" onclick="changeLanguage('en')"><img th:src="@{/resources/images/en.png}" src="../../static/resources/images/en.png"/></a>
         </li>
       </ul>
     </div>
