@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ public class Owner extends Person {
     private String address;
     private String city;
     private String telephone;
+    @OrderBy("id")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new LinkedHashSet<>();
 

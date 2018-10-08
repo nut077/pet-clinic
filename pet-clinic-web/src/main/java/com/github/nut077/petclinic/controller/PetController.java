@@ -58,9 +58,11 @@ public class PetController {
         }
         owner.getPets().add(pet);
         if (result.hasErrors()) {
+            pet.setOwner(owner);
             model.put("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
+            pet.setOwner(owner);
             petJpaService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }
@@ -80,7 +82,7 @@ public class PetController {
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
             pet.setId(petId);
-            owner.getPets().add(pet);
+            pet.setOwner(owner);
             petJpaService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }

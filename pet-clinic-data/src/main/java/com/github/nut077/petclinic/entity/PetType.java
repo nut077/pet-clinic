@@ -12,4 +12,9 @@ public class PetType extends NameEntity {
     public PetType(Long id, String name) {
         super(id, name);
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

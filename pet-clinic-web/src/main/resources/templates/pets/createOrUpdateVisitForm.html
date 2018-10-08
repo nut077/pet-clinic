@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{ :: body}, 'owners', #{owners})}">
+<body>
+<h2>
+  <span th:text="#{animal}"></span>
+  <th:block th:if="${visit['new']}"><span th:text="#{new}"></span></th:block>
+</h2>
+<form th:object="${pet}" class="form-horizontal" method="post">
+
+</form>
+</body>
+</html>
