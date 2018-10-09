@@ -46,42 +46,27 @@ public class DataLoader implements CommandLineRunner {
         dentistry.setDescription("dentistry");
         Speciality savedDentistry = specialityJpaService.save(dentistry);
 
-        Owner owner1 = new Owner();
-        owner1.setFirstName("George");
-        owner1.setLastName("Franklin");
-        owner1.setAddress("237");
-        owner1.setCity("Kanchanaburi");
-        owner1.setTelephone("084-3344312");
+        Owner owner1 = Owner.builder().firstName("George").lastName("Franklin")
+                .address("237").city("Kanchanaburi").telephone("084-3344312").build();
 
-        Pet fanta = new Pet();
-        fanta.setName("Fanta");
-        fanta.setPetType(savedDogPetType);
-        fanta.setOwner(owner1);
-        fanta.setBirthDate(LocalDate.now());
+        Pet fanta = Pet.builder().name("Fanta").petType(savedDogPetType)
+                .owner(owner1).birthDate(LocalDate.now()).build();
+
         owner1.getPets().add(fanta);
         ownerJpaService.save(owner1);
 
-        Owner owner2 = new Owner();
-        owner2.setFirstName("Betty");
-        owner2.setLastName("Davis");
-        owner2.setAddress("93");
-        owner2.setCity("Bangkok");
-        owner2.setTelephone("086-5411215");
+        Owner owner2 = Owner.builder().firstName("Betty").lastName("Davis")
+                .address("93").city("Bangkok").telephone("086-5411215").build();
 
-        Pet leo = new Pet();
-        leo.setName("Leo");
-        leo.setPetType(savedCatPetType);
-        leo.setOwner(owner2);
-        leo.setBirthDate(LocalDate.now());
+        Pet leo = Pet.builder().name("Leo").petType(savedCatPetType)
+                .owner(owner2).birthDate(LocalDate.now()).build();
+
         owner2.getPets().add(leo);
 
         ownerJpaService.save(owner2);
 
-        Visit visit = new Visit();
-        visit.setDate(LocalDate.now());
-        visit.setDescription("visit");
-        visit.setPet(leo);
-        visitJpaService.save(visit);
+        Visit visit1 = Visit.builder().date(LocalDate.now()).description("visit").pet(leo).build();
+        visitJpaService.save(visit1);
 
         System.out.println("Load Owner");
 
@@ -89,6 +74,7 @@ public class DataLoader implements CommandLineRunner {
         vet1.setFirstName("James");
         vet1.setLastName("Carter");
         vet1.getSpecialities().add(savedRadiology);
+
         vetJpaService.save(vet1);
 
         Vet vet2 = new Vet();

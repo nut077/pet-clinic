@@ -54,10 +54,10 @@
         </tr>
         <tr>
           <td>
-            <a th:href="@{{ownerId}/pets/{petId}/edit(ownerId=${owner.id},petId=${pet.id})}" th:text="#{pet}">Pet</a>
+            <a th:href="@{{ownerId}/pets/{petId}/edit(ownerId=${owner.id},petId=${pet.id})}" th:text="#{editPet}">Edit Pet</a>
           </td>
           <td>
-            <a th:href="@{{ownerId}/pets/{petId}/visits/new(ownerId=${owner.id},petId=${pet.id})}" th:text="#{visit}">Visit</a>
+            <a th:href="@{{ownerId}/pets/{petId}/visits/new(ownerId=${owner.id},petId=${pet.id})}" th:text="#{addVisit}">Add Visit</a>
           </td>
         </tr>
         </tbody>

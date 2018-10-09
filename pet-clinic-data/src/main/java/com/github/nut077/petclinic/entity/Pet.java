@@ -25,6 +25,7 @@ public class Pet extends NameEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
+    @OrderBy("id desc")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private Set<Visit> visits = new LinkedHashSet<>();
 

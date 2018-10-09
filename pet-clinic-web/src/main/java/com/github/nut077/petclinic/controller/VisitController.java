@@ -35,11 +35,11 @@ public class VisitController {
     }
 
     @GetMapping("/owners/{ownerId}/pets/{petId}/visits/new")
-    public String initNewVisitForm(@PathVariable Long petId, Map<String, Object> model) {
+    public String initNewVisitForm() {
         return VIEWS_VISIT_CREATE_OR_UPDATE_FORM;
     }
 
-    @PostMapping("/owners/{ownerId}/pets/{petId}/visit/new")
+    @PostMapping("/owners/{ownerId}/pets/{petId}/visits/new")
     public String processNewVisitForm(@Valid Visit visit, BindingResult result) {
         if (result.hasErrors()) {
             return VIEWS_VISIT_CREATE_OR_UPDATE_FORM;
